@@ -1,0 +1,138 @@
+/* RecyclAI App Styles */
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  /* Better mobile scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile-optimized body */
+body {
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  /* Better touch handling */
+  touch-action: manipulation;
+  /* Prevent text selection on interactive elements */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in content areas */
+main {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Enhanced mobile tap targets */
+button, [role="button"] {
+  min-height: 44px; /* iOS recommended minimum */
+  min-width: 44px;
+  /* Better touch feedback */
+  -webkit-tap-highlight-color: rgba(34, 197, 94, 0.1);
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced mobile hover states */
+@media (hover: hover) {
+  .hover\:scale-102:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Mobile-specific active states */
+@media (hover: none) {
+  button:active, [role="button"]:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Glassmorphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Enhanced mobile scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px; /* Thinner on mobile */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.4);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.6);
+}
+
+/* Loading shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced pulse animation for interactive elements */
+@keyframes pulse-eco {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+}
+
+.pulse-eco {
+  animation: pulse-eco 2s infinite;
+}
+
+/* Mobile safe area support */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .h-safe-area-inset-bottom {
+    height: env(safe-area-inset-bottom);
+  }
+}
+
+/* Enhanced focus states for accessibility */
+button:focus-visible, [role="button"]:focus-visible {
+  outline: 2px solid #22c55e;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for mobile interactions */
+* {
+  transition-property: transform, opacity, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+
+/* Disable transitions during page load for better performance */
+.preload * {
+  transition: none !important;
+}
